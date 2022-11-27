@@ -37,5 +37,6 @@ public interface PaysService {
 //	List<Pays> findByNomPaysLike(String nom);
 	
 	List<Pays> findByContinentIdCat(Long id);
+	
 
 }

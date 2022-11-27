@@ -50,7 +50,10 @@ public class PaysRESTController {
 		return paysService.findByContinentIdCat(idCat) ;
 	}
 	
-	
+	@RequestMapping(value="/paysByName/{nom}",method = RequestMethod.GET)
+	public List<Pays> findByNomPaysContains(@PathVariable("nom") String nom) {
+	return paysService.findPaysByName(nom);
+	}
 	
 	
 	

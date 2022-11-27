@@ -115,6 +115,7 @@ public class PaysServiceImpl implements PaysService {
 		// return produitRepository.findByCategorieIdCat(id);
 		return paysRepository.findByContinentIdCat(id);
 	}
+
 	
 
 }
