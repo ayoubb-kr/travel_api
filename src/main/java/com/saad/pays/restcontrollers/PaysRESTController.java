@@ -12,13 +12,11 @@ import com.saad.pays.service.*;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin
+@CrossOrigin("*")
 public class PaysRESTController {
 	@Autowired
 	PaysService paysService;
-	
-
-	
+		
 	// select*
 	@RequestMapping(method = RequestMethod.GET)
 	public List<Pays> getAllPays() {

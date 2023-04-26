@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.saad.pays.entities.*;
 import com.saad.pays.entities.Continent;
 @RepositoryRestResource(path = "cat ")
-@CrossOrigin("http://127.0.0.1:4200/")
+@CrossOrigin("*")
 public interface ContinentRepository extends JpaRepository<Continent, Long> {
 	
 

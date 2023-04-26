@@ -1,4 +1,5 @@
 package com.saad.pays.security;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,6 +20,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+
 public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
 	@Override
@@ -56,5 +58,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 		SecurityContextHolder.getContext().setAuthentication(user);
 		filterChain.doFilter(request, response);
 	}
-	
+
 }
+
+
