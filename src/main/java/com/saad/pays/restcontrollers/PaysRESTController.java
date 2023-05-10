@@ -19,23 +19,23 @@ public class PaysRESTController {
 		
 	// select*
 	@RequestMapping(method = RequestMethod.GET)
-	public List<Pays> getAllPays() {
+	public List<Visa> getAllPays() {
 	return paysService.getAllPays();
 	}
 	// select with id 
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public Pays getPays(@PathVariable("id") Long id) {
+	public Visa getPays(@PathVariable("id") Long id) {
 	return paysService.getPays(id);
 	}
 	// insert *
 	@RequestMapping(method = RequestMethod.POST)
-	public Pays greatePays(@RequestBody Pays pays) {
-		return paysService.savePays(pays);
+	public Visa greatePays(@RequestBody Visa visa) {
+		return paysService.savePays(visa);
 	}
 	// update *
 	@RequestMapping(method = RequestMethod.PUT)
-	public Pays updatePays (@RequestBody Pays pays) {
-		return paysService.updatePays(pays);
+	public Visa updatePays (@RequestBody Visa visa) {
+		return paysService.updatePays(visa);
 	}
 	//Delete id*
 	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
@@ -43,13 +43,13 @@ public class PaysRESTController {
 		paysService.deletePaysById(id);
 	}
 	@RequestMapping(value="/paycont/{idCat}",method = RequestMethod.GET)
-	public List<Pays> getPaysByIcat(@PathVariable("idCat") Long idCat){
+	public List<Visa> getPaysByIcat(@PathVariable("idCat") Long idCat){
 		//return null ;
 		return paysService.findByContinentIdCat(idCat) ;
 	}
 	
 	@RequestMapping(value="/paysByName/{nom}",method = RequestMethod.GET)
-	public List<Pays> findByNomPaysContains(@PathVariable("nom") String nom) {
+	public List<Visa> findByNomPaysContains(@PathVariable("nom") String nom) {
 	return paysService.findPaysByName(nom);
 	}
 	

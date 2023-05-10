@@ -2,41 +2,40 @@ package com.saad.pays.service;
 
 import java.util.List;
 
+import com.saad.pays.entities.Passport;
+import com.saad.pays.entities.Visa;
 import org.springframework.data.domain.Page;
-
-import com.saad.pays.entities.Continent;
-import com.saad.pays.entities.Pays;
 
 
 public interface PaysService {
 	
-	Pays savePays(Pays p);
-	Continent saveContinent(Continent c);
+	Visa savePays(Visa p);
+	Passport saveContinent(Passport c);
 	
-	Pays updatePays(Pays p);
-	Continent updateContinent(Continent c);
+	Visa updatePays(Visa p);
+	Passport updateContinent(Passport c);
 	
-	void deletePays(Pays p);
-	void deleteContinent(Continent c);
+	void deletePays(Visa p);
+	void deleteContinent(Passport c);
 	
 	void deletePaysById(Long id);
 	void deleteContinentById(Long id);
 	
-	Pays getPays(Long id);
-	Continent getContinent(Long id);
+	Visa getPays(Long id);
+	Passport getContinent(Long id);
 	
-	List<Pays> getAllPays();
+	List<Visa> getAllPays();
 	
-	List<Continent> getAllContinent();
+	List<Passport> getAllContinent();
 	
-	List<Pays> findPaysByName(String Name);
+	List<Visa> findPaysByName(String Name);
 	
-	Page<Pays> getAllPaysParPage(int page, int size);
-	Page<Continent> getAllContinentParePAge(int page, int size);
+	Page<Visa> getAllPaysParPage(int page, int size);
+	Page<Passport> getAllContinentParePAge(int page, int size);
 	
 //	List<Pays> findByNomPaysLike(String nom);
 	
-	List<Pays> findByContinentIdCat(Long id);
+	List<Visa> findByContinentIdCat(Long id);
 	
 
 }

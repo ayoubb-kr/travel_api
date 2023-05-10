@@ -19,22 +19,22 @@ href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
 					<form th:action="@{saveContinent}" method="post">
 					   <div class="form-group">
 							<label class="control-label" hidden>ID pay :</label> 
-		       				<input type="text" hidden  name="idCat" class="form-control" th:value="${continent.idCat}"  />
+		       				<input type="text" hidden  name="idCat" class="form-control" th:value="${passport.idCat}"  />
 						</div>
 						<div class="form-group">
 							<label class="control-label">Nom nomcont :</label> 
-					        <input type="text" name="nomcont" class="form-control" th:value="${continent.nomcont}"  />
-							<span th:errors=${continent.nomcont} class="text-danger"> </span>	 
+					        <input type="text" name="nomcont" class="form-control" th:value="${passport.nomcont}"  />
+							<span th:errors=${passport.nomcont} class="text-danger"> </span>
 						</div>
 						<div class="form-group">
-							<label class="control-label">la Surface du continent en Km :</label> 
-							<input type="text" name="km" class="form-control" th:value="${continent.km}" />
-							 <span th:errors=${continent.km} class="text-danger"> </span> 
+							<label class="control-label">la Surface du passport en Km :</label>
+							<input type="text" name="km" class="form-control" th:value="${passport.km}" />
+							 <span th:errors=${passport.km} class="text-danger"> </span>
 						</div>
 						<div class="form-group">
 							<label class="control-label">population :</label> 
-							<input type="text" name="population" class="form-control"  th:value="${continent.population}"/>
-							 <span th:errors=${continent.population} class="text-danger"> </span> 
+							<input type="text" name="population" class="form-control"  th:value="${passport.population}"/>
+							 <span th:errors=${passport.population} class="text-danger"> </span>
 						</div>
 
 					 

@@ -29,16 +29,16 @@
 							<th>Nom du Pays</th>
 							<th>langues quelle parent</th>
 							<th>nombre de gouvernement</th>
-							<th>continent</th>
+							<th>passport</th>
 							<th>Actions</th>
 						</tr>
-						<tr th:each="p:${pays}">
+						<tr th:each="p:${visa}">
 							<td th:text="${p.idPay}"></td>
 							<td th:text="${p.nomPay}"></td>
 							<td th:text="${p.Langues}"></td>
 							<td th:text="${p.Gouvernorat}"></td>
-							<td   th:if="${!#strings.isEmpty(p.continent.nomcont)}" th:text="${p.continent.nomcont}"></td>  
- 							<td   th:if="${#strings.isEmpty(p.continent.nomcont)}"   th:text="${'Pas de Continent assosier'}"></td>
+							<td   th:if="${!#strings.isEmpty(p.passport.nomcont)}" th:text="${p.passport.nomcont}"></td>
+ 							<td   th:if="${#strings.isEmpty(p.passport.nomcont)}"   th:text="${'Pas de Continent assosier'}"></td>
 							<td sec:authorize="hasRole('ADMIN')"><a class="btn btn-danger"
 									onclick="return confirm('Etes-vous sûr ?')" th:href="@{supprimerPays(id=${p.idPay},
 page=${currentPage},size=${size})}">Supprimer</a>

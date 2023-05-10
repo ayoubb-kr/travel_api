@@ -28,15 +28,15 @@
 							<th>Nom du Pays</th>
 							<th>langues quelle parent</th>
 							<th>nombre de gouvernement</th>
-							<th>continent</th>
+							<th>passport</th>
 							<th>Actions</th>
 						</tr>
-						<tr th:each="p:${pays}">
+						<tr th:each="p:${visa}">
 							<td th:text="${p.idPay}"></td>
 							<td th:text="${p.nomPay}"></td>
 							<td th:text="${p.Langues}"></td>
 							<td th:text="${p.Gouvernorat}"></td>
-							<td th:text="${p.continent.nomcont}"> </td>
+							<td th:text="${p.passport.nomcont}"> </td>
 
 
 

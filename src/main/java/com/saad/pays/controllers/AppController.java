@@ -1,10 +1,11 @@
 package com.saad.pays.controllers;
 
-import java.io.Console;
 import java.util.List;
 
 import javax.validation.Valid;
 
+import com.saad.pays.entities.Passport;
+import com.saad.pays.entities.Visa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -14,8 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.saad.pays.entities.Continent;
-import com.saad.pays.entities.Pays;
 import com.saad.pays.service.PaysService;
 
 
@@ -32,17 +31,17 @@ public class AppController {
 	//}
 	
 	@RequestMapping("/updatePays")
-	public String updatePays(@ModelAttribute("Pays") Pays pays,ModelMap modelMap) 
+	public String updatePays(@ModelAttribute("Pays") Visa visa, ModelMap modelMap)
 	{
-		paysService.updatePays(pays);
-		  List<Pays> prods = paysService.getAllPays();
+		paysService.updatePays(visa);
+		  List<Visa> prods = paysService.getAllPays();
 		  modelMap.addAttribute("pays", prods);	
 		return "listePays";
 	}
 	
 	@RequestMapping("/recherchePay")
 	public String Search(ModelMap modelMap, @Valid String nomPays) {
-		List<Pays> pays = paysService.findPaysByName(nomPays);
+		List<Visa> pays = paysService.findPaysByName(nomPays);
 		modelMap.addAttribute("pays", pays);
 		return "listePaysRecherchers";
 	}
@@ -52,8 +51,8 @@ public class AppController {
 	@RequestMapping("/modifierPays")
 	public String editerpays(@RequestParam("id") Long id,ModelMap modelMap)
 	{
-		Pays p= 	paysService.getPays(id);
-		List<Continent> cats = paysService.getAllContinent();
+		Visa p= 	paysService.getPays(id);
+		List<Passport> cats = paysService.getAllContinent();
 		modelMap.addAttribute("pays", p);
 		modelMap.addAttribute("mode", "edit");
 		modelMap.addAttribute("continent", cats);
@@ -62,10 +61,10 @@ public class AppController {
 
 	
 	@RequestMapping("/savePays")
-	public String savePays(@Valid Pays pays,BindingResult bindingResult)
+	public String savePays(@Valid Visa visa, BindingResult bindingResult)
 	{
 	if (bindingResult.hasErrors()) return "formPays";
-	paysService.savePays(pays);
+	paysService.savePays(visa);
 	return "listePays";	
 	}
 	
@@ -73,11 +72,11 @@ public class AppController {
 	@RequestMapping("/showCreate")
 	public String showCreate(ModelMap modelMap)
 	{
-		List<Continent> cats = paysService.getAllContinent();
-		Pays prod = new Pays();
-		Continent cat = new Continent();
+		List<Passport> cats = paysService.getAllContinent();
+		Visa prod = new Visa();
+		Passport cat = new Passport();
 		cat = cats.get(0); 
-		prod.setContinent(cat); 
+		prod.setPassport(cat);
 		modelMap.addAttribute("pays",prod);
 		modelMap.addAttribute("mode", "new");
 		modelMap.addAttribute("continent", cats);
@@ -90,7 +89,7 @@ public class AppController {
 			@RequestParam (name="page",defaultValue = "0") int page,
 			@RequestParam (name="size", defaultValue = "4") int size)
 	{
-		Page<Pays> prods = paysService.getAllPaysParPage(page, size);
+		Page<Visa> prods = paysService.getAllPaysParPage(page, size);
 		modelMap.addAttribute("pays", prods);		
 		modelMap.addAttribute("pages", new int[prods.getTotalPages()]);	
 		modelMap.addAttribute("currentPage", page);	
@@ -105,7 +104,7 @@ public class AppController {
 			@RequestParam (name="size", defaultValue = "4") int size)
 	{
 		paysService.deletePaysById(id);
-		Page<Pays> prods = paysService.getAllPaysParPage(page, size);
+		Page<Visa> prods = paysService.getAllPaysParPage(page, size);
 		modelMap.addAttribute("pays", prods);		
 		modelMap.addAttribute("pages", new int[prods.getTotalPages()]);	
 		modelMap.addAttribute("currentPage", page);	

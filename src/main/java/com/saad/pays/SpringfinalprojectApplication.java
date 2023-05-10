@@ -1,21 +1,16 @@
 package com.saad.pays;
 
-import com.saad.pays.entities.Role;
-import com.saad.pays.entities.User;
+import com.saad.pays.entities.Visa;
 import com.saad.pays.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
-import com.saad.pays.entities.Continent;
-import com.saad.pays.entities.Pays;
+import com.saad.pays.entities.Passport;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 public class SpringfinalprojectApplication implements CommandLineRunner{
@@ -31,11 +26,11 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		repositoryRestConfiguration.exposeIdsFor(Pays.class,Continent.class);
+		repositoryRestConfiguration.exposeIdsFor(Visa.class, Passport.class);
 		
 	}
 
-
+/*
 	@PostConstruct
 	void init_users() {
 		userService.addRole(new Role(null,"ADMIN")); userService.addRole(new
@@ -55,7 +50,7 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 		userService.addRoleToUser("yassine", "USER"); }
 
 
-
+*/
 
 
 	@Bean
