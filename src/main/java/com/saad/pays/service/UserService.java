@@ -8,4 +8,6 @@ public interface UserService {
     User findUserByUsername (String username);
     Role addRole(Role role);
     User addRoleToUser(String username, String rolename);
+    User updateUser(User user);
+    void deleteUserById(Long id);
 }

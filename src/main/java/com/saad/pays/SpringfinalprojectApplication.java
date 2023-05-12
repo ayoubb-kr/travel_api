@@ -1,5 +1,7 @@
 package com.saad.pays;
 
+import com.saad.pays.entities.Role;
+import com.saad.pays.entities.User;
 import com.saad.pays.entities.Visa;
 import com.saad.pays.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
 import com.saad.pays.entities.Passport;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.annotation.PostConstruct;
 
 @SpringBootApplication
 public class SpringfinalprojectApplication implements CommandLineRunner{
@@ -29,8 +33,8 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 		repositoryRestConfiguration.exposeIdsFor(Visa.class, Passport.class);
 		
 	}
-
 /*
+
 	@PostConstruct
 	void init_users() {
 		userService.addRole(new Role(null,"ADMIN")); userService.addRole(new

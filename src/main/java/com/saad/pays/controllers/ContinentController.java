@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.saad.pays.service.PaysService;
+import com.saad.pays.service.VisaService;
 
 
 
@@ -23,7 +23,7 @@ import com.saad.pays.service.PaysService;
 @Controller
 public class ContinentController {
 	@Autowired
-	PaysService paysService;
+	VisaService visaService;
 	
 	//@RequestMapping("rootTesting")
 	//public String viewHomePage () {
@@ -35,7 +35,7 @@ public class ContinentController {
 			@RequestParam (name="page",defaultValue = "0") int page,
 			@RequestParam (name="size", defaultValue = "4") int size)
 	{
-		Page<Passport> prods = paysService.getAllContinentParePAge(page, size);
+		Page<Passport> prods = visaService.getAllPassportParePAge(page, size);
 		modelMap.addAttribute("continent", prods);		
 		modelMap.addAttribute("pages", new int[prods.getTotalPages()]);	
 		modelMap.addAttribute("currentPage", page);	
@@ -54,7 +54,7 @@ public class ContinentController {
 	public String saveSinger(@Valid Passport passport, BindingResult bindingResult)
 	{
 	if (bindingResult.hasErrors()) return "formContinents";
-	paysService.saveContinent(passport);
+	visaService.savePassport(passport);
 	return "listeContinent";
 	}
 	
@@ -62,8 +62,8 @@ public class ContinentController {
 	public String supprimerContinent(@RequestParam("id") Long id,
 	 ModelMap modelMap)
 	{ 
-		paysService.deleteContinentById(id);
-	List<Passport> cats = paysService.getAllContinent();
+		visaService.deletePassportById(id);
+	List<Passport> cats = visaService.getAllPassport();
 	modelMap.addAttribute("continent", cats);
 	return "listeContinent";
 	}
@@ -71,8 +71,8 @@ public class ContinentController {
 	@RequestMapping("/updateContinent")
 	public String updateContinent(@ModelAttribute("continent") Passport passport, ModelMap modelMap)
 	{
-		paysService.updateContinent(passport);
-		  List<Passport> prods = paysService.getAllContinent();
+		visaService.updatePassport(passport);
+		  List<Passport> prods = visaService.getAllPassport();
 		  modelMap.addAttribute("Continent", prods);	
 		return "listeContinent";
 	}
@@ -80,8 +80,8 @@ public class ContinentController {
 	@RequestMapping("/modifierContinent")
 	public String editerContinent(@RequestParam("id") Long id,ModelMap modelMap)
 	{
-	Passport c = paysService.getContinent(id);
-	modelMap.addAttribute("continent", c);
+	Passport p = visaService.getPassport(id);
+	modelMap.addAttribute("continent", p);
 	modelMap.addAttribute("mode", "edit");
 	return "formContinents";
 	}

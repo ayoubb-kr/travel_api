@@ -19,13 +19,11 @@ public class UserServiceImpl  implements UserService{
     @Autowired
     RoleRepository roleRep;
 
-
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public User saveUser(User user) {
-
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRep.save(user);
     }
@@ -34,9 +32,19 @@ public class UserServiceImpl  implements UserService{
     public User addRoleToUser(String username, String rolename) {
         User usr = userRep.findByUsername(username);
         Role r = roleRep.findByRole(rolename);
-
         usr.getRoles().add(r);
         return usr;
+    }
+
+    @Override
+    public User updateUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        return userRep.save(user);
+    }
+
+    @Override
+    public void deleteUserById(Long id) {
+        userRep.deleteById(id);
     }
 
 
@@ -49,5 +57,8 @@ public class UserServiceImpl  implements UserService{
     public User findUserByUsername(String username) {
         return userRep.findByUsername(username);
     }
+
+
+
 
 }
