@@ -22,6 +22,7 @@ import com.saad.pays.service.VisaService;
 
 @Controller
 public class AppController {
+	/*
 	@Autowired
 	VisaService visaService;
 	
@@ -96,13 +97,13 @@ public class AppController {
 		return "listePays";	
 	}
 	
-	
+
 	@RequestMapping("/supprimerPays")
 	public String supprimerpays(@RequestParam("id") Long id,
 			ModelMap modelMap,
 			@RequestParam (name="page",defaultValue = "0") int page,
 			@RequestParam (name="size", defaultValue = "4") int size)
-	{
+
 		visaService.deleteVisaById(id);
 		Page<Visa> prods = visaService.getAllVisaParPage(page, size);
 		modelMap.addAttribute("pays", prods);		
@@ -111,5 +112,5 @@ public class AppController {
 		modelMap.addAttribute("size", size);	
 		return "listePays";	
 	}
-
+*/
 }

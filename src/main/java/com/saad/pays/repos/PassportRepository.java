@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import com.saad.pays.entities.Passport;
 @RepositoryRestResource(path = "cat ")
 @CrossOrigin("*")
-public interface PassportRepository extends JpaRepository<Passport, Long> {
+public interface PassportRepository extends JpaRepository<Passport, String> {
 	
 
 }

@@ -1,12 +1,7 @@
 package com.saad.pays.restcontrollers;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.saad.pays.entities.*;
 import com.saad.pays.service.*;
 
@@ -23,13 +18,13 @@ public class VisasRESTController {
 	return visaService.getAllVisa();
 	}
 	// select with id 
-	@RequestMapping(value="/{id}",method = RequestMethod.GET)
-	public Visa getVisa(@PathVariable("id") Long id) {
-	return visaService.getVisa(id);
+	@RequestMapping(value="/{idVisa}",method = RequestMethod.GET)
+	public Visa getVisa(@PathVariable("idVisa") String idVisa) {
+	return visaService.getVisa(idVisa);
 	}
 	// insert *
 	@RequestMapping(method = RequestMethod.POST)
-	public Visa greateVisa(@RequestBody Visa visa) {
+	public Visa createVisa(@RequestBody Visa visa) {
 		return visaService.saveVisa(visa);
 	}
 	// update *
@@ -38,10 +33,11 @@ public class VisasRESTController {
 		return visaService.updateVisa(visa);
 	}
 	//Delete id*
-	@RequestMapping(value="/{id}",method = RequestMethod.DELETE)
-	public void deleteVisa(@PathVariable("id") Long id) {
-		visaService.deleteVisaById(id);
+	@RequestMapping(value = "/{idVisa}", method = RequestMethod.DELETE)
+	public void deleteVisaById(@PathVariable String idVisa) {
+		visaService.deleteVisaById(idVisa);
 	}
+
 	/*
 	@RequestMapping(value="/paycont/{idCat}",method = RequestMethod.GET)
 	public List<Visa> getPaysByIcat(@PathVariable("idCat") Long idCat){
@@ -49,13 +45,35 @@ public class VisasRESTController {
 		return visaService.findByVisaId(idCat) ;
 	}
 	*/
-	@RequestMapping(value="/paysByName/{nom}",method = RequestMethod.GET)
+	/*@RequestMapping(value="/paysByName/{nom}",method = RequestMethod.GET)
 	public List<Visa> findByNomPaysContains(@PathVariable("nom") String nom) {
 	return visaService.findVisaByName(nom);
 	}
-	
-	
-	
-	
-	
+	*/
+
+	// select*
+	@RequestMapping(value = "/passport",method = RequestMethod.GET)
+	public List<Passport> getAllPassport() {
+		return visaService.getAllPassport();
+	}
+	// select with id
+	@RequestMapping(value="/passport/{id}",method = RequestMethod.GET)
+	public Passport getPassport(@PathVariable("id") String id) {
+		return visaService.getPassport(id);
+	}
+	// insert *
+	@RequestMapping(value = "/passport",method = RequestMethod.POST)
+	public Passport creatPassport(@RequestBody Passport passport) {
+		return visaService.savePassport(passport);
+	}
+	// update *
+	@RequestMapping(value = "/passport",method = RequestMethod.PUT)
+	public Passport updateVisa (@RequestBody Passport passport) {
+		return visaService.updatePassport(passport);
+	}
+	//Delete id*
+	@RequestMapping(value = "/passport/{id}", method = RequestMethod.DELETE)
+	public void deletePassportById(@PathVariable String id) {
+		visaService.deletePassportById(id);
+	}
 }

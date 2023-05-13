@@ -50,8 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 //supprimer un produit
 		 http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/**").hasAuthority("ADMIN");
 
-		http.authorizeRequests().antMatchers("/login").permitAll();
-		http.authorizeRequests().antMatchers("/all").hasAuthority("ADMIN");
+		 http.authorizeRequests().antMatchers("/login").permitAll();
+		 http.authorizeRequests().antMatchers("/all").hasAuthority("ADMIN");
 
 		 http.authorizeRequests().anyRequest().authenticated();
 		 http.addFilter(new  JWTAuthenticationFilter (authenticationManager())) ;

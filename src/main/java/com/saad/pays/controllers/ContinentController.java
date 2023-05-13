@@ -22,6 +22,7 @@ import com.saad.pays.service.VisaService;
 
 @Controller
 public class ContinentController {
+	/*
 	@Autowired
 	VisaService visaService;
 	
@@ -57,7 +58,7 @@ public class ContinentController {
 	visaService.savePassport(passport);
 	return "listeContinent";
 	}
-	
+
 	@RequestMapping("/supprimerContinent")
 	public String supprimerContinent(@RequestParam("id") Long id,
 	 ModelMap modelMap)
@@ -67,7 +68,7 @@ public class ContinentController {
 	modelMap.addAttribute("continent", cats);
 	return "listeContinent";
 	}
-	
+
 	@RequestMapping("/updateContinent")
 	public String updateContinent(@ModelAttribute("continent") Passport passport, ModelMap modelMap)
 	{
@@ -76,7 +77,7 @@ public class ContinentController {
 		  modelMap.addAttribute("Continent", prods);	
 		return "listeContinent";
 	}
-	
+
 	@RequestMapping("/modifierContinent")
 	public String editerContinent(@RequestParam("id") Long id,ModelMap modelMap)
 	{
@@ -86,5 +87,5 @@ public class ContinentController {
 	return "formContinents";
 	}
 	
-	
+	*/
 }
