@@ -8,9 +8,5 @@ import java.util.List;
 
 @RepositoryRestResource(path = "rest")
 public interface VisaRepository extends JpaRepository<Visa, String> {
-	
-	//@Query("select p from Pays p, Continent c where p.continent.idCat = c.idCat and p.continent.nomcont like %:nom%")
-	//List<Visa> findByNomPays(@Param("nom") String nom);
-	//add
-	//List<Visa> findByVisaId(Long id);
+
 }

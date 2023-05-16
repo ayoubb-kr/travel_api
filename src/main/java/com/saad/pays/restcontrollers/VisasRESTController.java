@@ -38,18 +38,7 @@ public class VisasRESTController {
 		visaService.deleteVisaById(idVisa);
 	}
 
-	/*
-	@RequestMapping(value="/paycont/{idCat}",method = RequestMethod.GET)
-	public List<Visa> getPaysByIcat(@PathVariable("idCat") Long idCat){
-		//return null ;
-		return visaService.findByVisaId(idCat) ;
-	}
-	*/
-	/*@RequestMapping(value="/paysByName/{nom}",method = RequestMethod.GET)
-	public List<Visa> findByNomPaysContains(@PathVariable("nom") String nom) {
-	return visaService.findVisaByName(nom);
-	}
-	*/
+
 
 	// select*
 	@RequestMapping(value = "/passport",method = RequestMethod.GET)

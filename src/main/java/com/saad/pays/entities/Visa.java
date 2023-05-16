@@ -13,33 +13,33 @@ import java.util.Date;
 @Entity
 public class Visa {
 	@Id
-	private String idVisa;
+	private String IdVisa;
 
 	@Temporal(TemporalType.DATE)
 	private Date VisaExpDate;
 
-	private long jours;
+	private long Jours;
 
-	private long mois;
+	private long Mois;
 
 
 	@ManyToOne
-	private Passport passport;
+	private Passport Passport;
 
 	public Visa(String idVisa, Date visaExpDate, long jours, long mois, Passport passport) {
-		this.idVisa = idVisa;
+		this.IdVisa = idVisa;
 		VisaExpDate = visaExpDate;
-		this.jours = jours;
-		this.mois = mois;
-		this.passport = passport;
+		this.Jours = jours;
+		this.Mois = mois;
+		this.Passport = passport;
 	}
 
 	public String getIdVisa() {
-		return idVisa;
+		return IdVisa;
 	}
 
-	public void setIdVisa(String idVisa) {
-		this.idVisa = idVisa;
+	public void setIdVisa(String IdVisa) {
+		this.IdVisa = IdVisa;
 	}
 
 	public Date getVisaExpDate() {
@@ -51,27 +51,27 @@ public class Visa {
 	}
 
 	public long getJours() {
-		return jours;
+		return Jours;
 	}
 
 	public void setJours(long jours) {
-		this.jours = jours;
+		this.Jours = jours;
 	}
 
 	public long getMois() {
-		return mois;
+		return Mois;
 	}
 
 	public void setMois(long mois) {
-		this.mois = mois;
+		this.Mois = mois;
 	}
 
 	public Passport getPassport() {
-		return passport;
+		return Passport;
 	}
 
 	public void setPassport(Passport passport) {
-		this.passport = passport;
+		this.Passport = passport;
 	}
 
 	public Visa() {

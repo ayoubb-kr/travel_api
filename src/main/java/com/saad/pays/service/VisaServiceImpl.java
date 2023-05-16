@@ -55,21 +55,10 @@ public class VisaServiceImpl implements VisaService {
 		
 		return visaRepository.findAll(PageRequest.of(page, size));
 	}
-	@Override
-	public List<Visa> findVisaByName(String Name) {
-		return null;
 
-	}
-	@Override
-	public List<Visa> findByVisaId(Long id) {
-		return null;
-	}
 
-	/*@Override
-	public List<Visa> findByVisaId(Long id) {
-		return visaRepository.findByVisaId(id);
-	}
-*/
+
+
 	//
 
 	@Override
@@ -117,18 +106,6 @@ public class VisaServiceImpl implements VisaService {
 		return passportRepository.findAll(PageRequest.of(page, size));
 	}
 
-	/*
-	@Override
-	public List<Visa> findPaysByName(String Name) {
-		// TODO Auto-generated method stub
-		return paysRepository.findByNomPays(Name);
-	}
-	@Override
-	public List<Visa> findByContinentIdCat(Long id) {
-		// return produitRepository.findByCategorieIdCat(id);
-		return paysRepository.findByContinentIdCat(id);
-	}
-*/
-	
+
 
 }

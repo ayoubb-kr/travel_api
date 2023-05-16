@@ -7,27 +7,27 @@ import java.util.List;
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long user_id;
+    private Long User_id;
 
     @Column(unique=true)
-    private String username;
-    private String password;
+    private String Username;
+    private String Password;
     private Boolean enabled;
 
 
-    //@ManyToMany(cascade=CascadeType.ALL, fetch = FetchType.EAGER)
+
     @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, fetch = FetchType.EAGER)
     @JoinTable(name="user_role",joinColumns = @JoinColumn(name="user_id") ,
             inverseJoinColumns = @JoinColumn(name="role_id"))
-    private List<Role> roles;
+    private List<Role> Roles;
 
     public User(Long user_id, String username, String password, Boolean enabled, List<Role> roles) {
         super();
-        this.user_id = user_id;
-        this.username = username;
-        this.password = password;
+        this.User_id = user_id;
+        this.Username = username;
+        this.Password = password;
         this.enabled = enabled;
-        this.roles = roles;
+        this.Roles = roles;
     }
 
     public User() {
@@ -35,27 +35,27 @@ public class User {
     }
 
     public Long getUser_id() {
-        return user_id;
+        return User_id;
     }
 
     public void setUser_id(Long user_id) {
-        this.user_id = user_id;
+        this.User_id = user_id;
     }
 
     public String getUsername() {
-        return username;
+        return Username;
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.Username = username;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.Password = password;
     }
 
     public Boolean getEnabled() {
@@ -67,11 +67,11 @@ public class User {
     }
 
     public List<Role> getRoles() {
-        return roles;
+        return Roles;
     }
 
     public void setRoles(List<Role> roles) {
-        this.roles = roles;
+        this.Roles = roles;
     }
 
 

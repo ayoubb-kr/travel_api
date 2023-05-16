@@ -17,10 +17,11 @@ public interface VisaService {
 	void deleteVisaById(String idVisa);
 
 
+
+
 	void deleteVisa(Visa v);
 	Page<Visa> getAllVisaParPage(int page, int size);
-	List<Visa> findByVisaId(Long id);
-	List<Visa> findVisaByName(String Name);
+
 
 
 

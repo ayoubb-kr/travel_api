@@ -11,18 +11,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Passport {
 	@Id
-	private String idPass;
+	private String IdPass;
 
 	@Temporal(TemporalType.DATE)
 	private Date PassExpDate;
 	@JsonIgnore
-	@OneToMany(mappedBy = "passport")
-	private List<Visa> visas;
+	@OneToMany(mappedBy = "Passport")
+	private List<Visa> Visas;
 
 	public Passport(String idPass, Date passExpDate, List<Visa> visas) {
-		this.idPass = idPass;
+		this.IdPass = idPass;
 		PassExpDate = passExpDate;
-		this.visas = visas;
+		this.Visas = visas;
 	}
 
 	public Date getPassExpDate() {
@@ -34,27 +34,27 @@ public class Passport {
 	}
 
 	public List<Visa> getVisas() {
-		return visas;
+		return Visas;
 	}
 
 	public void setVisas(List<Visa> visas) {
-		this.visas = visas;
+		this.Visas = visas;
 	}
 
 	public String getIdPass() {
-		return idPass;
+		return IdPass;
 	}
 
 	public void setIdPass(String idPass) {
-		this.idPass = idPass;
+		this.IdPass = idPass;
 	}
 
 	@Override
 	public String toString() {
 		return "Passport{" +
-				"idPass='" + idPass + '\'' +
+				"idPass='" + IdPass + '\'' +
 				", PassExpDate=" + PassExpDate +
-				", visas=" + visas +
+				", visas=" + Visas +
 				'}';
 	}
 
