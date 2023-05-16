@@ -9,14 +9,14 @@ import javax.persistence.Id;
 public class Role {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long Role_id;
-    private String Role;
+    private Long role_id;
+    private String role;
 
 
     public Role(Long role_id, String role) {
         super();
-        this.Role_id = role_id;
-        this.Role = role;
+        this.role_id = role_id;
+        this.role = role;
     }
 
 
@@ -26,22 +26,22 @@ public class Role {
 
 
     public Long getRole_id() {
-        return Role_id;
+        return role_id;
     }
 
 
     public void setRole_id(Long role_id) {
-        this.Role_id = role_id;
+        this.role_id = role_id;
     }
 
 
     public String getRole() {
-        return Role;
+        return role;
     }
 
 
     public void setRole(String role) {
-        this.Role = role;
+        this.role = role;
     }
 
 
