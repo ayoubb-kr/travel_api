@@ -36,7 +36,7 @@ public class UserRestController {
     }
     // insert *
     @RequestMapping(method = RequestMethod.POST)
-    public User createVisa(@RequestBody User user) {
+    public User saveUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
 

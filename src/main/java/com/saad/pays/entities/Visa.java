@@ -2,6 +2,7 @@ package com.saad.pays.entities;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,6 +17,7 @@ public class Visa {
 	private String idVisa;
 
 	@Temporal(TemporalType.DATE)
+	@JsonFormat(pattern="yyyy-MM-dd")
 	private Date VisaExpDate;
 
 	private long jours;
@@ -42,13 +44,15 @@ public class Visa {
 		this.idVisa = IdVisa;
 	}
 
+	public void setVisaExpDate(Date visaExpDate) {
+		this.VisaExpDate = visaExpDate;
+	}
+
 	public Date getVisaExpDate() {
 		return VisaExpDate;
 	}
 
-	public void setVisaExpDate(Date visaExpDate) {
-		VisaExpDate = visaExpDate;
-	}
+
 
 	public long getJours() {
 		return jours;
@@ -75,5 +79,16 @@ public class Visa {
 	}
 
 	public Visa() {
+	}
+
+	@Override
+	public String toString() {
+		return "Visa{" +
+				"idVisa='" + idVisa + '\'' +
+				", VisaExpDate=" + VisaExpDate +
+				", jours=" + jours +
+				", mois=" + mois +
+				", Passport=" + Passport +
+				'}';
 	}
 }
