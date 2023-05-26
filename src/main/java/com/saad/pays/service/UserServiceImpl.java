@@ -2,7 +2,6 @@ package com.saad.pays.service;
 
 import com.saad.pays.entities.Role;
 import com.saad.pays.entities.User;
-import com.saad.pays.entities.Visa;
 import com.saad.pays.repos.RoleRepository;
 import com.saad.pays.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +65,10 @@ public class UserServiceImpl  implements UserService{
         return userRep.findByUsername(username);
     }
 
+    @Override
+    public List<Role> getAllRoles() {
+        return roleRep.findAll();
+    }
 
 
 

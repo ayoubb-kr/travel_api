@@ -57,7 +57,7 @@ public class VisasRESTController {
 	}
 	// update *
 	@RequestMapping(value = "/passport",method = RequestMethod.PUT)
-	public Passport updateVisa (@RequestBody Passport passport) {
+	public Passport updatePassport (@RequestBody Passport passport) {
 		return visaService.updatePassport(passport);
 	}
 	//Delete id*

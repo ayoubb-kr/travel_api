@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user/")
+@RequestMapping("/api/user")
 @CrossOrigin("*")
 public class UserRestController {
 
@@ -35,12 +35,10 @@ public class UserRestController {
         userService.deleteUserById(id);
     }
     // insert *
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public User saveUser(@RequestBody User user) {
         return userService.saveUser(user);
     }
-
-
    // add role to user
     @PutMapping("/{username}/roles/{rolename}")
     public ResponseEntity<User> addRoleToUser(@PathVariable String username, @PathVariable String rolename) {
@@ -62,6 +60,12 @@ public class UserRestController {
         return new ResponseEntity<>(userService.findUserByUsername(username), HttpStatus.OK);
     }
 
+    // affichage les role
+    @GetMapping("/roles")
+    public ResponseEntity<List<Role>> getAllRoles() {
+        List<Role> roles = userService.getAllRoles();
+        return new ResponseEntity<>(roles, HttpStatus.OK);
+    }
 
 
 }
