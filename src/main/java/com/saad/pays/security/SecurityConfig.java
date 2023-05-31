@@ -33,22 +33,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.csrf().disable();
 		 http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
-		//consulter tous les produits
 
-		 http.authorizeRequests().antMatchers("/api/all/**").hasAnyAuthority("ADMIN","USER");
+		 // Permit access to add passport for all authenticated users
+		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/passport").authenticated();
+		//modifier
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/user").authenticated();
 
-		  //consulter un produit par son id
 
-		 http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/**").hasAnyAuthority("ADMIN","USER");
+		//consulter tous les enitys
 
-		  //ajouter un nouveau produit
-		 http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/**").hasAuthority("ADMIN");
+		 http.authorizeRequests().antMatchers("/api/all/**").hasAnyAuthority("ADMIN");
+		 http.authorizeRequests().antMatchers("/api/**/all").hasAnyAuthority("ADMIN");
 
-		  //modifier un produit
+		  //consulter tou
+		 http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/**").hasAnyAuthority("ADMIN","USER","TEAM_LEADER","AGENT_RH","TRAVEL_MANAGER");
+
+		 //ajouter
+		http.authorizeRequests().antMatchers(HttpMethod.POST,"/api/**").hasAuthority("ADMIN");
+
+		  //modifier
 		 http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/**").hasAuthority("ADMIN");
 
-		 //supprimer un produit
+		 //supprimer
 		 http.authorizeRequests().antMatchers(HttpMethod.DELETE,"/api/**").hasAuthority("ADMIN");
+
+
 
 		 http.authorizeRequests().antMatchers("/login").permitAll();
 		 http.authorizeRequests().antMatchers("/all").hasAuthority("ADMIN");

@@ -13,7 +13,7 @@ public class VisasRESTController {
 	VisaService visaService;
 		
 	// select*
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(value="/all",method = RequestMethod.GET)
 	public List<Visa> getAllVisa() {
 	return visaService.getAllVisa();
 	}
@@ -41,15 +41,16 @@ public class VisasRESTController {
 
 
 	// select*
-	@RequestMapping(value = "/passport",method = RequestMethod.GET)
+	@RequestMapping(value = "/passport/all",method = RequestMethod.GET)
 	public List<Passport> getAllPassport() {
 		return visaService.getAllPassport();
 	}
 	// select with id
 	@RequestMapping(value="/passport/{id}",method = RequestMethod.GET)
-	public Passport getPassport(@PathVariable("id") String id) {
-		return visaService.getPassport(id);
+	public Passport getPassportByUserId(@PathVariable("id") Long id) {
+		return visaService.getPassportByUserId(id);
 	}
+
 	// insert *
 	@RequestMapping(value = "/passport",method = RequestMethod.POST)
 	public Passport creatPassport(@RequestBody Passport passport) {
@@ -65,4 +66,6 @@ public class VisasRESTController {
 	public void deletePassportById(@PathVariable String id) {
 		visaService.deletePassportById(id);
 	}
+
+	
 }

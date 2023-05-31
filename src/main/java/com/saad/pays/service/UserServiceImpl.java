@@ -1,7 +1,9 @@
 package com.saad.pays.service;
 
+import com.saad.pays.entities.Passport;
 import com.saad.pays.entities.Role;
 import com.saad.pays.entities.User;
+import com.saad.pays.repos.PassportRepository;
 import com.saad.pays.repos.RoleRepository;
 import com.saad.pays.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +22,17 @@ public class UserServiceImpl  implements UserService{
 
     @Autowired
     RoleRepository roleRep;
-
+    @Autowired
+    PassportRepository passRepository;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
     public User saveUser(User user) {
+        String idPass = user.getPassport().getIdPass();
+        Passport passport = passRepository.findById(idPass)
+                .orElseThrow(() -> new RuntimeException("Passport not found"));
+        user.setPassport(passport);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRep.save(user);
     }
@@ -55,21 +62,31 @@ public class UserServiceImpl  implements UserService{
     }
 
 
-    @Override
-    public Role addRole(Role role) {
-        return roleRep.save(role);
-    }
+
 
     @Override
     public User findUserByUsername(String username) {
         return userRep.findByUsername(username);
     }
 
+
+
     @Override
     public List<Role> getAllRoles() {
         return roleRep.findAll();
     }
 
+    @Override
+    public void deleteRoleById(Long id) {
+        roleRep.deleteById(id);
+    }
+
+    @Override
+    public Role updateRole(Role role) {return roleRep.save(role);}
+    @Override
+    public Role addRole(Role role) {
+        return roleRep.save(role);
+    }
 
 
 }

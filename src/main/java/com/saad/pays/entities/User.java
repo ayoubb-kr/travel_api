@@ -21,15 +21,18 @@ public class User {
             inverseJoinColumns = @JoinColumn(name="role_id"))
     private List<Role> roles;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "passport_id", referencedColumnName = "idPass")
+    private Passport passport;
 
-
-    public User(Long user_id, String username, String password, Boolean enabled, List<Role> roles) {
+    public User(Long user_id, String username, String password, Boolean enabled, List<Role> roles , Passport passport) {
         super();
         this.user_id = user_id;
         this.username = username;
         this.password = password;
         this.enabled = enabled;
         this.roles = roles;
+        this.passport = passport;
     }
 
     public User() {
@@ -76,5 +79,11 @@ public class User {
         this.roles = roles;
     }
 
+    public Passport getPassport() {
+        return passport;
+    }
 
+    public void setPassport(Passport passport) {
+        this.passport = passport;
+    }
 }

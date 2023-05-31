@@ -20,7 +20,7 @@ public interface VisaService {
 
 
 	void deleteVisa(Visa v);
-	Page<Visa> getAllVisaParPage(int page, int size);
+
 
 
 
@@ -32,8 +32,8 @@ public interface VisaService {
 	Passport updatePassport(Passport p);
 	void deletePassportById(String id);
 	Passport savePassport(Passport p);
+	Passport getPassportByUserId(Long userId);
 
-	Page<Passport> getAllPassportParePAge(int page, int size);
 	void deletePassport(Passport p);
 
 }

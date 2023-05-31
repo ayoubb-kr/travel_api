@@ -49,23 +49,35 @@ public class UserRestController {
     public ResponseEntity<User> updateUser(@RequestBody User user) {
         return new ResponseEntity<>(userService.updateUser(user), HttpStatus.OK);
     }
-    // add role
-    @PostMapping("/roles")
-    public ResponseEntity<Role> createRole(@RequestBody Role role) {
-        return new ResponseEntity<>(userService.addRole(role), HttpStatus.CREATED);
-    }
+
     // get user by username
     @GetMapping("/{username}")
     public ResponseEntity<User> getUser(@PathVariable String username) {
         return new ResponseEntity<>(userService.findUserByUsername(username), HttpStatus.OK);
     }
 
+
+
     // affichage les role
-    @GetMapping("/roles")
+    @GetMapping("/roles/all")
     public ResponseEntity<List<Role>> getAllRoles() {
         List<Role> roles = userService.getAllRoles();
         return new ResponseEntity<>(roles, HttpStatus.OK);
     }
 
+    // add role
+    @PostMapping("/roles")
+    public ResponseEntity<Role> createRole(@RequestBody Role role) {
+        return new ResponseEntity<>(userService.addRole(role), HttpStatus.CREATED);
+    }
+    //delete role
+    @RequestMapping(value = "/roles/{id}", method = RequestMethod.DELETE)
+    public void deleteRole(@PathVariable Long id) {userService.deleteRoleById(id);}
+
+    // update user
+    @PutMapping("/roles")
+    public ResponseEntity<Role> updateUser(@RequestBody Role role) {
+        return new ResponseEntity<>(userService.updateRole(role), HttpStatus.OK);
+    }
 
 }

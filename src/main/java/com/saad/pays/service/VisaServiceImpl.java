@@ -50,11 +50,7 @@ public class VisaServiceImpl implements VisaService {
 	public void deleteVisa(Visa v) {
 		visaRepository.delete(v);
 	}
-	@Override
-	public Page<Visa> getAllVisaParPage(int page, int size) {
-		
-		return visaRepository.findAll(PageRequest.of(page, size));
-	}
+
 
 
 
@@ -70,7 +66,10 @@ public class VisaServiceImpl implements VisaService {
 		// TODO Auto-generated method stub
 		return passportRepository.findById(id).get();
 	}
-
+	@Override
+	public Passport getPassportByUserId(Long userId) {
+		return passportRepository.findByUser_Id(userId);
+	}
 	@Override
 	public Passport savePassport(Passport p) {
 		// TODO Auto-generated method stub
@@ -100,12 +99,6 @@ public class VisaServiceImpl implements VisaService {
 		// TODO Auto-generated method stub
 		passportRepository.delete(p);
 	}
-	@Override
-	public Page<Passport> getAllPassportParePAge(int page, int size) {
-		// TODO Auto-generated method stub
-		return passportRepository.findAll(PageRequest.of(page, size));
-	}
-
 
 
 }

@@ -33,29 +33,29 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 		repositoryRestConfiguration.exposeIdsFor(Visa.class, Passport.class);
 		
 	}
-
 /*
+
 	@PostConstruct
 	void init_users() {
 
 		userService.addRole(new Role(null,"ADMIN")); userService.addRole(new
 				Role(null,"USER"));
 
-		userService.saveUser(new User(null,"admin","123",true,null));
-		userService.saveUser(new User(null,"ayoub","123",true,null));
-		userService.saveUser(new User(null,"yassine","123",true,null));
-		userService.saveUser(new User(null,"nourhene","123",true,null));
+		userService.saveUser(new User(null,"admin","123",true,null,null));
+
+		userService.saveUser(new User(null,"yassine","123",true,null,null));
+
 
 		userService.addRoleToUser("admin", "ADMIN");
 		userService.addRoleToUser("admin", "ADMIN");
-		userService.addRoleToUser("ayoub", "ADMIN");
+
 		userService.addRoleToUser("yassine", "USER");
-		userService.addRoleToUser("nourhene", "ADMIN");
+
 
 		 }
 
-
 */
+
 
 
 
