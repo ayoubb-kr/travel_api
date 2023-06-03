@@ -1,7 +1,7 @@
-package com.saad.pays.security;
+package com.vermeg.travel.security;
 
-import com.saad.pays.entities.User;
-import com.saad.pays.service.UserService;
+import com.vermeg.travel.entities.User;
+import com.vermeg.travel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

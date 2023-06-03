@@ -1,6 +1,6 @@
-package com.saad.pays.repos;
+package com.vermeg.travel.repos;
 
-import com.saad.pays.entities.User;
+import com.vermeg.travel.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

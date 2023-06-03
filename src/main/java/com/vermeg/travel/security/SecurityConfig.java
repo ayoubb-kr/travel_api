@@ -1,4 +1,4 @@
-package com.saad.pays.security;
+package com.vermeg.travel.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;

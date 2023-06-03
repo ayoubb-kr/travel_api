@@ -1,11 +1,11 @@
-package com.saad.pays.service;
+package com.vermeg.travel.service;
 
-import com.saad.pays.entities.Passport;
-import com.saad.pays.entities.Role;
-import com.saad.pays.entities.User;
-import com.saad.pays.repos.PassportRepository;
-import com.saad.pays.repos.RoleRepository;
-import com.saad.pays.repos.UserRepository;
+import com.vermeg.travel.entities.Passport;
+import com.vermeg.travel.entities.Role;
+import com.vermeg.travel.entities.User;
+import com.vermeg.travel.repos.PassportRepository;
+import com.vermeg.travel.repos.RoleRepository;
+import com.vermeg.travel.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -26,16 +26,18 @@ public class UserServiceImpl  implements UserService{
     PassportRepository passRepository;
     @Autowired
     BCryptPasswordEncoder bCryptPasswordEncoder;
-
-    @Override
     public User saveUser(User user) {
-        String idPass = user.getPassport().getIdPass();
-        Passport passport = passRepository.findById(idPass)
-                .orElseThrow(() -> new RuntimeException("Passport not found"));
+        Passport passport = null;
+        if (user.getPassport() != null) {
+            String idPass = user.getPassport().getIdPass();
+            passport = passRepository.findById(idPass)
+                    .orElseThrow(() -> new RuntimeException("Passport not found"));
+        }
         user.setPassport(passport);
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         return userRep.save(user);
     }
+
 
     @Override
     public List<User>getAllUsers() {

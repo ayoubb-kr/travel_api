@@ -1,16 +1,13 @@
-package com.saad.pays.service;
+package com.vermeg.travel.service;
 
 import java.util.List;
 
-import com.saad.pays.entities.Passport;
+import com.vermeg.travel.entities.Passport;
+import com.vermeg.travel.entities.Visa;
+import com.vermeg.travel.repos.PassportRepository;
+import com.vermeg.travel.repos.VisaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import com.saad.pays.entities.Visa;
-import com.saad.pays.repos.PassportRepository;
-import com.saad.pays.repos.VisaRepository;
 
 
 @Service

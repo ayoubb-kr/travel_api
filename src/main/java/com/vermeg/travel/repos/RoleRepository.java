@@ -1,6 +1,6 @@
-package com.saad.pays.repos;
+package com.vermeg.travel.repos;
 
-import com.saad.pays.entities.Role;
+import com.vermeg.travel.entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {

@@ -1,8 +1,7 @@
-package com.saad.pays.service;
+package com.vermeg.travel.service;
 
-import com.saad.pays.entities.Role;
-import com.saad.pays.entities.User;
-import com.saad.pays.entities.Visa;
+import com.vermeg.travel.entities.Role;
+import com.vermeg.travel.entities.User;
 
 import java.util.List;
 

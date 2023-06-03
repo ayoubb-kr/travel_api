@@ -1,4 +1,4 @@
-package com.saad.pays.entities;
+package com.vermeg.travel.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

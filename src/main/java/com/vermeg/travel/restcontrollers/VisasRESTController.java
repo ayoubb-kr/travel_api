@@ -1,9 +1,12 @@
-package com.saad.pays.restcontrollers;
+package com.vermeg.travel.restcontrollers;
 import java.util.List;
+
+import com.vermeg.travel.entities.Passport;
+import com.vermeg.travel.entities.Visa;
+import com.vermeg.travel.service.VisaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.saad.pays.entities.*;
-import com.saad.pays.service.*;
+
 
 @RestController
 @RequestMapping("/api")

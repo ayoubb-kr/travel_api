@@ -1,10 +1,9 @@
-package com.saad.pays.restcontrollers;
+package com.vermeg.travel.restcontrollers;
 
-import com.saad.pays.entities.Role;
-import com.saad.pays.entities.User;
-import com.saad.pays.entities.Visa;
-import com.saad.pays.repos.UserRepository;
-import com.saad.pays.service.UserService;
+import com.vermeg.travel.entities.Role;
+import com.vermeg.travel.entities.User;
+import com.vermeg.travel.repos.UserRepository;
+import com.vermeg.travel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.saad.pays.entities;
+package com.vermeg.travel.entities;
 
 import java.util.Date;
 import java.util.List;

@@ -1,10 +1,9 @@
-package com.saad.pays.service;
+package com.vermeg.travel.service;
 
 import java.util.List;
 
-import com.saad.pays.entities.Passport;
-import com.saad.pays.entities.Visa;
-import org.springframework.data.domain.Page;
+import com.vermeg.travel.entities.Passport;
+import com.vermeg.travel.entities.Visa;
 
 
 public interface VisaService {

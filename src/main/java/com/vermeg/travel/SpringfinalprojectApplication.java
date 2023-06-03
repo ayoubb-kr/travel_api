@@ -1,17 +1,17 @@
-package com.saad.pays;
+package com.vermeg.travel;
 
-import com.saad.pays.entities.Role;
-import com.saad.pays.entities.User;
-import com.saad.pays.entities.Visa;
-import com.saad.pays.service.UserService;
+import com.vermeg.travel.entities.User;
+import com.vermeg.travel.entities.Visa;
+import com.vermeg.travel.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 
-import com.saad.pays.entities.Passport;
+import com.vermeg.travel.entities.Passport;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.annotation.PostConstruct;
@@ -33,13 +33,12 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 		repositoryRestConfiguration.exposeIdsFor(Visa.class, Passport.class);
 		
 	}
-/*
 
+/*
 	@PostConstruct
 	void init_users() {
 
-		userService.addRole(new Role(null,"ADMIN")); userService.addRole(new
-				Role(null,"USER"));
+
 
 		userService.saveUser(new User(null,"admin","123",true,null,null));
 
@@ -50,15 +49,13 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 		userService.addRoleToUser("admin", "ADMIN");
 
 		userService.addRoleToUser("yassine", "USER");
-
-
 		 }
 
+
+
+
+
 */
-
-
-
-
 	@Bean
 	BCryptPasswordEncoder getBCE() {
 		return new BCryptPasswordEncoder();
