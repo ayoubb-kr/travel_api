@@ -16,11 +16,16 @@ public class Passport {
 	@Temporal(TemporalType.DATE)
 	private Date PassExpDate;
 	@JsonIgnore
-	@OneToMany(mappedBy = "Passport" , cascade = CascadeType.ALL )
+	@OneToMany(mappedBy = "passport" , cascade = CascadeType.ALL )
 	private List<Visa> visas;
 	@JsonIgnore
 	@OneToOne(mappedBy = "passport")
 	private User user;
+
+	@JsonIgnore
+	@OneToMany(mappedBy = "passport", cascade = CascadeType.ALL)
+	private List<VisaRequest> visaRequests;
+
 	public Passport(String idPass, Date passExpDate, List<Visa> visas, User user) {
 		this.idPass = idPass;
 		PassExpDate = passExpDate;
@@ -64,6 +69,13 @@ public class Passport {
 		super();
 	}
 
+	public List<VisaRequest> getVisaRequests() {
+		return visaRequests;
+	}
+
+	public void setVisaRequests(List<VisaRequest> visaRequests) {
+		this.visaRequests = visaRequests;
+	}
 
 	@Override
 	public String toString() {
@@ -72,6 +84,7 @@ public class Passport {
 				", PassExpDate=" + PassExpDate +
 				", visas=" + visas +
 				", user=" + user +
+				", visaRequests=" + visaRequests +
 				'}';
 	}
 }

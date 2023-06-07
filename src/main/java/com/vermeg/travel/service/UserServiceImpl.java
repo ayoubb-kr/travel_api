@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Transactional
 @Service
@@ -54,9 +55,26 @@ public class UserServiceImpl  implements UserService{
 
     @Override
     public User updateUser(User user) {
-        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        return userRep.save(user);
+        Optional<User> originalUserOpt = userRep.findById(user.getUser_id());
+        if(originalUserOpt.isPresent()) {
+            User originalUser = originalUserOpt.get();
+            // only set the password if it's not null in the incoming user
+            if(user.getPassword() != null) {
+                originalUser.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+            }
+
+
+            originalUser.setUsername(user.getUsername());
+            originalUser.setRoles(user.getRoles());
+            originalUser.setPassport(user.getPassport());
+
+
+            return userRep.save(originalUser);
+        } else {
+            throw new RuntimeException("User not found with id: " + user.getUser_id());
+        }
     }
+
 
     @Override
     public void deleteUserById(Long id) {
@@ -69,6 +87,10 @@ public class UserServiceImpl  implements UserService{
     @Override
     public User findUserByUsername(String username) {
         return userRep.findByUsername(username);
+    }
+
+    public Optional<User> findUserById(Long user_id) {
+        return userRep.findUserByUserId(user_id);
     }
 
 

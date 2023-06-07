@@ -28,8 +28,8 @@ public class VisaServiceImpl implements VisaService {
 		return visaRepository.save(v);
 	}
 	@Override
-	public Visa getVisa(String idVisa) {
-		return visaRepository.findById(idVisa).get();
+	public List<Visa> getVisaByIdpass(String idPass) {
+		return visaRepository.findByPassport_IdPass(idPass);
 	}
 	@Override
 	public Visa updateVisa(Visa v) {

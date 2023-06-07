@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/user")
@@ -50,11 +51,15 @@ public class UserRestController {
     }
 
     // get user by username
-    @GetMapping("/{username}")
+    @GetMapping("/name/{username}")
     public ResponseEntity<User> getUser(@PathVariable String username) {
         return new ResponseEntity<>(userService.findUserByUsername(username), HttpStatus.OK);
     }
 
+    @GetMapping("/{user_id}")
+    public ResponseEntity<Optional<User>>findUserById(@PathVariable long user_id) {
+        return new ResponseEntity<>(userService.findUserById(user_id), HttpStatus.OK);
+    }
 
 
     // affichage les role

@@ -21,9 +21,9 @@ public class VisasRESTController {
 	return visaService.getAllVisa();
 	}
 	// select with id 
-	@RequestMapping(value="/{idVisa}",method = RequestMethod.GET)
-	public Visa getVisa(@PathVariable("idVisa") String idVisa) {
-	return visaService.getVisa(idVisa);
+	@RequestMapping(value="/{id}",method = RequestMethod.GET)
+	public List<Visa> getVisaByIdpass(@PathVariable("id") String id) {
+	return visaService.getVisaByIdpass(id);
 	}
 	// insert *
 	@RequestMapping(method = RequestMethod.POST)

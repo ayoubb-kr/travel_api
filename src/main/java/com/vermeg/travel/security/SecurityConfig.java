@@ -34,18 +34,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		 http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
 
-		 // Permit access to add passport for all authenticated users
+		 // Permit access to users
 		http.authorizeRequests().antMatchers(HttpMethod.POST, "/api/passport").authenticated();
-		//modifier
 		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/user").authenticated();
-
+		http.authorizeRequests().antMatchers(HttpMethod.PUT,"/api/passport").authenticated();
 
 		//consulter tous les enitys
 
-		 http.authorizeRequests().antMatchers("/api/all/**").hasAnyAuthority("ADMIN");
+		 http.authorizeRequests().antMatchers("/api/all").hasAnyAuthority("ADMIN");
 		 http.authorizeRequests().antMatchers("/api/**/all").hasAnyAuthority("ADMIN");
 
-		  //consulter tou
+		  //consulter
 		 http.authorizeRequests().antMatchers(HttpMethod.GET,"/api/**").hasAnyAuthority("ADMIN","USER","TEAM_LEADER","AGENT_RH","TRAVEL_MANAGER");
 
 		 //ajouter

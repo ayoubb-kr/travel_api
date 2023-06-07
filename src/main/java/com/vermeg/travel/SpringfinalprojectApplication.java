@@ -1,5 +1,6 @@
 package com.vermeg.travel;
 
+import com.vermeg.travel.entities.Role;
 import com.vermeg.travel.entities.User;
 import com.vermeg.travel.entities.Visa;
 import com.vermeg.travel.service.UserService;
@@ -38,24 +39,30 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 	@PostConstruct
 	void init_users() {
 
+  		userService.addRole(new Role(null,"ADMIN"));
 
+  		userService.addRole(newRole(null,"USER"));
 
 		userService.saveUser(new User(null,"admin","123",true,null,null));
 
-		userService.saveUser(new User(null,"yassine","123",true,null,null));
+		userService.saveUser(new User(null,"ayoub","123",true,null,null));
 
 
-		userService.addRoleToUser("admin", "ADMIN");
-		userService.addRoleToUser("admin", "ADMIN");
+		userService.addRoleToUser("ayoub", "ADMIN");
 
+/*
 		userService.addRoleToUser("yassine", "USER");
-		 }
+		*/
+
+	/*
 
 
 
-
+	}
 
 */
+
+
 	@Bean
 	BCryptPasswordEncoder getBCE() {
 		return new BCryptPasswordEncoder();

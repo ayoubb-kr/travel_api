@@ -10,7 +10,7 @@ public interface VisaService {
 
 
 	List<Visa> getAllVisa();
-	Visa getVisa(String idVisa);
+	List<Visa> getVisaByIdpass(String id);
 	Visa saveVisa(Visa v);
 	Visa updateVisa(Visa v);
 	void deleteVisaById(String idVisa);

@@ -7,8 +7,8 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.vermeg.travel.entities.Passport;
-@RepositoryRestResource(path = "cat ")
-@CrossOrigin("*")
+
+
 public interface PassportRepository extends JpaRepository<Passport, String> {
 
     @Query("SELECT p FROM Passport p WHERE p.user.user_id = :userId")

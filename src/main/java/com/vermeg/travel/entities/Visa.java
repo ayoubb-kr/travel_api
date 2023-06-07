@@ -13,8 +13,8 @@ public class Visa {
 	private String idVisa;
 
 	@Temporal(TemporalType.DATE)
-	@JsonFormat(pattern="MM-dd-yyyy")
-	private Date VisaExpDate;
+
+	private Date visaExpDate;
 
 	private long jours;
 
@@ -22,14 +22,14 @@ public class Visa {
 
 
 	@ManyToOne
-	private Passport Passport;
+	private Passport passport;
 
 	public Visa(String idVisa, Date visaExpDate, long jours, long mois, Passport passport) {
 		this.idVisa = idVisa;
-		VisaExpDate = visaExpDate;
+		visaExpDate = visaExpDate;
 		this.jours = jours;
 		this.mois = mois;
-		this.Passport = passport;
+		this.passport = passport;
 	}
 
 	public String getIdVisa() {
@@ -41,11 +41,11 @@ public class Visa {
 	}
 
 	public void setVisaExpDate(Date visaExpDate) {
-		this.VisaExpDate = visaExpDate;
+		this.visaExpDate = visaExpDate;
 	}
 
 	public Date getVisaExpDate() {
-		return VisaExpDate;
+		return visaExpDate;
 	}
 
 
@@ -67,24 +67,15 @@ public class Visa {
 	}
 
 	public Passport getPassport() {
-		return Passport;
+		return passport;
 	}
 
 	public void setPassport(Passport passport) {
-		this.Passport = passport;
+		this.passport = passport;
 	}
 
 	public Visa() {
 	}
 
-	@Override
-	public String toString() {
-		return "Visa{" +
-				"idVisa='" + idVisa + '\'' +
-				", VisaExpDate=" + VisaExpDate +
-				", jours=" + jours +
-				", mois=" + mois +
-				", Passport=" + Passport +
-				'}';
-	}
+
 }
