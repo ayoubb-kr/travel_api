@@ -1,6 +1,7 @@
 package com.vermeg.travel.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.vermeg.travel.entities.Passport;
 import com.vermeg.travel.entities.Visa;
@@ -40,7 +41,10 @@ public class VisaServiceImpl implements VisaService {
 		visaRepository.deleteById(idVisa);
 	}
 
-
+	@Override
+	public Optional<Visa> getVisaById(String id) {
+		return visaRepository.findById(id);
+	}
 
 
 	@Override
@@ -83,7 +87,6 @@ public class VisaServiceImpl implements VisaService {
 		// TODO Auto-generated method stub
 		passportRepository.deleteById(id);
 	}
-
 
 
 

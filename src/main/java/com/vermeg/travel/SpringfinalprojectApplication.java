@@ -41,27 +41,27 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 
   		userService.addRole(new Role(null,"ADMIN"));
 
-  		userService.addRole(newRole(null,"USER"));
+  		userService.addRole(new Role(null,"USER"));
 
-		userService.saveUser(new User(null,"admin","123",true,null,null));
+		userService.saveUser(new User(null,"yassine","123",true,null,null));
 
 		userService.saveUser(new User(null,"ayoub","123",true,null,null));
 
 
 		userService.addRoleToUser("ayoub", "ADMIN");
 
-/*
-		userService.addRoleToUser("yassine", "USER");
-		*/
 
-	/*
+		userService.addRoleToUser("yassine", "USER");
+
+
+
 
 
 
 	}
 
-*/
 
+*/
 
 	@Bean
 	BCryptPasswordEncoder getBCE() {

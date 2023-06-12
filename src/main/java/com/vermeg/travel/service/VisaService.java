@@ -1,6 +1,7 @@
 package com.vermeg.travel.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.vermeg.travel.entities.Passport;
 import com.vermeg.travel.entities.Visa;
@@ -14,8 +15,7 @@ public interface VisaService {
 	Visa saveVisa(Visa v);
 	Visa updateVisa(Visa v);
 	void deleteVisaById(String idVisa);
-
-
+	Optional<Visa> getVisaById(String id);
 
 
 	void deleteVisa(Visa v);

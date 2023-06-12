@@ -3,8 +3,10 @@ package com.vermeg.travel.entities;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -23,6 +25,9 @@ public class Visa {
 
 	@ManyToOne
 	private Passport passport;
+	@JsonIgnore
+	@OneToMany(mappedBy = "visa")
+	private List<MissionRequest> missionRequests;
 
 	public Visa(String idVisa, Date visaExpDate, long jours, long mois, Passport passport) {
 		this.idVisa = idVisa;

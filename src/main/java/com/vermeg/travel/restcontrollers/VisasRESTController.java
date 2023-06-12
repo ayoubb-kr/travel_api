@@ -1,5 +1,6 @@
 package com.vermeg.travel.restcontrollers;
 import java.util.List;
+import java.util.Optional;
 
 import com.vermeg.travel.entities.Passport;
 import com.vermeg.travel.entities.Visa;
@@ -20,10 +21,14 @@ public class VisasRESTController {
 	public List<Visa> getAllVisa() {
 	return visaService.getAllVisa();
 	}
-	// select with id 
+	// select with id
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
 	public List<Visa> getVisaByIdpass(@PathVariable("id") String id) {
-	return visaService.getVisaByIdpass(id);
+		return visaService.getVisaByIdpass(id);
+	}
+	@RequestMapping(value="/id/{id}",method = RequestMethod.GET)
+	public Optional<Visa> getVisaById(@PathVariable("id") String id) {
+	return visaService.getVisaById(id);
 	}
 	// insert *
 	@RequestMapping(method = RequestMethod.POST)
@@ -53,7 +58,10 @@ public class VisasRESTController {
 	public Passport getPassportByUserId(@PathVariable("id") Long id) {
 		return visaService.getPassportByUserId(id);
 	}
-
+	@RequestMapping(value="/passport/id/{id}",method = RequestMethod.GET)
+	public Passport getPassport(@PathVariable("id")  String id) {
+		return visaService.getPassport(id);
+	}
 	// insert *
 	@RequestMapping(value = "/passport",method = RequestMethod.POST)
 	public Passport creatPassport(@RequestBody Passport passport) {

@@ -88,7 +88,7 @@ public class UserServiceImpl  implements UserService{
     public User findUserByUsername(String username) {
         return userRep.findByUsername(username);
     }
-
+    @Override
     public Optional<User> findUserById(Long user_id) {
         return userRep.findUserByUserId(user_id);
     }

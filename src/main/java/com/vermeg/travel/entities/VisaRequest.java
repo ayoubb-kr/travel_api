@@ -5,6 +5,7 @@ import javax.persistence.*;
 public class VisaRequest {
 
     public enum Status {
+        WAITING,
         IN_PROGRESS,
         SUCCESSFUL,
         REJECTED

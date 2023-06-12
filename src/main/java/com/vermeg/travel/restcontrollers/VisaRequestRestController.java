@@ -1,14 +1,9 @@
 package com.vermeg.travel.restcontrollers;
 
-import com.vermeg.travel.entities.User;
-import com.vermeg.travel.entities.Visa;
 import com.vermeg.travel.entities.VisaRequest;
 import com.vermeg.travel.repos.VisaRequestRepository;
 import com.vermeg.travel.service.VisaRequestService;
-import com.vermeg.travel.service.VisaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,7 +11,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/req")
 @CrossOrigin("*")
-public class VisaRequestController {
+public class VisaRequestRestController {
     @Autowired
     VisaRequestService visareqService;
     @Autowired

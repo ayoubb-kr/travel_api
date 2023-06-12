@@ -25,7 +25,9 @@ public class Passport {
 	@JsonIgnore
 	@OneToMany(mappedBy = "passport", cascade = CascadeType.ALL)
 	private List<VisaRequest> visaRequests;
-
+	@JsonIgnore
+	@OneToMany(mappedBy = "passport")
+	private List<MissionRequest> missionRequests;
 	public Passport(String idPass, Date passExpDate, List<Visa> visas, User user) {
 		this.idPass = idPass;
 		PassExpDate = passExpDate;
