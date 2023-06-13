@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-public class User {
+public class User implements Serializable{
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -29,19 +29,22 @@ public class User {
     @JoinColumn(name = "passport_id", referencedColumnName = "idPass")
     private Passport passport;
 
-    public User(Long user_id, String username, String password, Boolean enabled, List<Role> roles , Passport passport) {
-        super();
+
+    public User(Long user_id, String username, String password, Boolean enabled, List<Role> roles, Passport passport) {
         this.user_id = user_id;
         this.username = username;
         this.password = password;
         this.enabled = enabled;
         this.roles = roles;
         this.passport = passport;
+
     }
 
     public User() {
         super();
     }
+
+
 
     public Long getUser_id() {
         return user_id;

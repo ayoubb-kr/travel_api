@@ -32,6 +32,10 @@ public class MissionRequestRestController {
     public MissionRequest updateMissionRequest(@RequestBody MissionRequest missionRequest) {
         return missionReq.updateMissionRequest(missionRequest);
     }
+    @RequestMapping(value="/idpass/{id}",method = RequestMethod.GET)
+    public List<MissionRequest> getVisaByIdpass(@PathVariable("id") String id) {
+        return missionReq.getMissionByIdpass(id);
+    }
     //delete
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
     public void deleteMissionRequest(@PathVariable Long id) {

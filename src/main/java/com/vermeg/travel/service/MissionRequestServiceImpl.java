@@ -2,6 +2,7 @@ package com.vermeg.travel.service;
 
 import com.vermeg.travel.entities.MissionRequest;
 
+import com.vermeg.travel.entities.Visa;
 import com.vermeg.travel.repos.MissionRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,7 +34,10 @@ public class MissionRequestServiceImpl implements MissionRequestService {
     public MissionRequest updateMissionRequest( MissionRequest missionReq) {
         return repmission.save(missionReq);
     }
-
+    @Override
+    public List<MissionRequest> getMissionByIdpass(String idPass) {
+        return repmission.findByPassport_IdPass(idPass);
+    }
     @Override
     public void deleteMissionRequest(Long id) {
         repmission.deleteById(id);

@@ -12,9 +12,6 @@ public class MissionRequest {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name="username", referencedColumnName="username")
-    private User user;
 
     @ManyToOne
     @JoinColumn(name="passport_id", referencedColumnName="idPass")
@@ -45,9 +42,9 @@ public class MissionRequest {
 
     private String feadback;
 
-    public MissionRequest(Long id, User user, Passport passport, Visa visa, Date dateDep, Date dateRet, int days, String missionObject, String departureCity, String arrivalCity, RequestStatus status, int budget, String feadback) {
+    public MissionRequest(Long id, Passport passport, Visa visa, Date dateDep, Date dateRet, int days, String missionObject, String departureCity, String arrivalCity, RequestStatus status, int budget, String feadback) {
         this.id = id;
-        this.user = user;
+
         this.passport = passport;
         this.visa = visa;
         this.dateDep = dateDep;
@@ -72,13 +69,9 @@ public class MissionRequest {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+
+
 
     public Passport getPassport() {
         return passport;

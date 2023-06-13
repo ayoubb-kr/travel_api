@@ -54,15 +54,11 @@ public class SpringfinalprojectApplication implements CommandLineRunner{
 		userService.addRoleToUser("yassine", "USER");
 
 
-
-
-
-
 	}
 
 
-*/
 
+*/
 	@Bean
 	BCryptPasswordEncoder getBCE() {
 		return new BCryptPasswordEncoder();

@@ -1,5 +1,6 @@
 package com.vermeg.travel.restcontrollers;
 
+import com.vermeg.travel.entities.Visa;
 import com.vermeg.travel.entities.VisaRequest;
 import com.vermeg.travel.repos.VisaRequestRepository;
 import com.vermeg.travel.service.VisaRequestService;
